@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,9 +24,18 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar =(Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 */
-        String waq = new String("Berg");
+        //String waq = new String("Berg");
         //String[] stirngArray = new String[] { "berg" };
-        Toast.makeText(getApplicationContext(), waq, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), waq, Toast.LENGTH_SHORT).show();
+
+       //String[] stirngArray = new String[] { "berg" };
+        String[] waq = new String[] {"Hello","Hej","Hoo"};
+        Toast.makeText(getApplicationContext(), Arrays.toString(waq), Toast.LENGTH_SHORT).show();
+        Log.d("EMIL", Arrays.toString(waq));
+
+        // String mystring = "[" + waq[0] + ", " + waq[1] + ", " + waq[2] + "]";
+        //Log.d("EMIL", mystring);
+
         /*
         FloatingActionButton fab =(FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListner ((view) {
@@ -34,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
         });
         */
 
-        Log.d("Potatis", waq);
+        //Log.d("Potatis", waq);
+
         // The onCreate method is run when the app is created.
         // Before you can implement this you need to create the layout xml files that
         // will hold/show your data created here. You need three create things:
