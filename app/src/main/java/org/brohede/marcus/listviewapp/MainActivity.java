@@ -2,6 +2,7 @@ package org.brohede.marcus.listviewapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 */
         String waq = new String("Berg");
+        //String[] stirngArray = new String[] { "berg" };
         Toast.makeText(getApplicationContext(), waq, Toast.LENGTH_SHORT).show();
         /*
         FloatingActionButton fab =(FloatingActionButton) findViewById(R.id.fab);
@@ -31,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
                     .setAction("Action", null).show();
         });
         */
+
+        Log.d("Potatis", waq);
         // The onCreate method is run when the app is created.
         // Before you can implement this you need to create the layout xml files that
         // will hold/show your data created here. You need three create things:
