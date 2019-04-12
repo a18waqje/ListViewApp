@@ -3,6 +3,9 @@ package org.brohede.marcus.listviewapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -32,7 +35,24 @@ public class MainActivity extends AppCompatActivity {
         String[] waq = new String[] {"Hello","Hej","Hoo"};
         Toast.makeText(getApplicationContext(), Arrays.toString(waq), Toast.LENGTH_SHORT).show();
         Log.d("EMIL", Arrays.toString(waq));
+        Button b =(Button) findViewById(R.id.toasterButton);
+        /*
+        b.setOnClickListner(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText myEdtBox =(EditText) findViewById(R.id.toasterText);
+                Toast.makeText(getApplicationContext(), myEditBox.getText(), Toast.LENGTH_SHORT).show();
+            }
 
+            };
+*/
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText myEdtBox =(EditText) findViewById(R.id.editText);
+                Toast.makeText(getApplicationContext(), myEdtBox.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
         // String mystring = "[" + waq[0] + ", " + waq[1] + ", " + waq[2] + "]";
         //Log.d("EMIL", mystring);
 
