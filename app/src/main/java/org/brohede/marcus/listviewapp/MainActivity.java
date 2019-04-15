@@ -4,8 +4,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -17,12 +21,18 @@ public class MainActivity extends AppCompatActivity {
     private String[] mountainLocations = {"Alps","Alps","Alaska"};
     private int[] mountainHeights ={4478,4808,6190};
     // Create ArrayLists from the raw data above and use these lists when populating your ListView.
+    private ArrayList<String> listData;
+
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        listData = new ArrayList<>(Arrays.asList(mountainNames));
         /*
         Toolbar toolbar =(Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -32,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         //Toast.makeText(getApplicationContext(), waq, Toast.LENGTH_SHORT).show();
 
        //String[] stirngArray = new String[] { "berg" };
-        String[] waq = new String[] {"Hello","Hej","Hoo"};
+        String[] waq = new String[] {"All","is","well!"};
         Toast.makeText(getApplicationContext(), Arrays.toString(waq), Toast.LENGTH_SHORT).show();
         Log.d("EMIL", Arrays.toString(waq));
         Button b =(Button) findViewById(R.id.toasterButton);
@@ -78,11 +88,23 @@ public class MainActivity extends AppCompatActivity {
         // Here you should enter your code that fills the ListView
         // 1. Create an array
         // 2. Create a List object with your array from step 1 as in-data
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.list_item_textview,listData);
+
         // 3. Create an ArrayAdapter object that connects
+        ListView my_listview=(ListView) findViewById(R.id.my_listview);
         //    * list_item_textview
         //    * my_item_textview
         //    * List object created in step 2
         // 4. Find the ListView layout element "my_listview" and create an object instance
+        my_listview.setAdapter(adapter);
+        my_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //listData.add(new String("Tomten!"));
+                Toast.makeText(getApplicationContext(),"Name:  "+mountainNames[i] + "\n" + "Höjd:  " + mountainHeights[i] + "\n" + " Location:  " + mountainLocations[i], Toast.LENGTH_SHORT).show();
+            }
+        });
+        //my_listview.setAdapter(ListAdapter adapter);
         // 5. Connect the ArrayAdapter from step 3 with ListView object created in step 4
         // 6. Style the ListView items according to Material Design
         //    See: https://material.io/guidelines/components/lists.html#lists-specs
