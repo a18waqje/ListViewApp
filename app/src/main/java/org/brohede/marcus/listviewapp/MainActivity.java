@@ -20,9 +20,10 @@ public class MainActivity extends AppCompatActivity {
     private String[] mountainNames = {"Matterhorn","Mont Blanc","Denali"};
     private String[] mountainLocations = {"Alps","Alps","Alaska"};
     private int[] mountainHeights ={4478,4808,6190};
-    private String[] situated = {"Switzerland, Italy","France, Italy","USA"};
+    //private String[] situated = {"Switzerland, Italy","France, Italy","USA"};
     // Create ArrayLists from the raw data above and use these lists when populating your ListView.
     private ArrayList<String> listData;
+    private ArrayList<Mountain> waqarsBerg=new ArrayList<>();
 
 
 
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         listData = new ArrayList<>(Arrays.asList(mountainNames));
+        waqarsBerg.add(new Mountain("Matterhorn","Alps",4478));
+        Log.d("WAQAR",waqarsBerg.get(0).getName());
         /*
         Toolbar toolbar =(Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -102,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //listData.add(new String("Tomten!"));
-                Toast.makeText(getApplicationContext(),"Name:  "+mountainNames[i] + "\n" + "Höjd:  " + mountainHeights[i] + "\n" + " Location:  " + mountainLocations[i] + "\n" + "Land:  " + situated[i], Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Name:  "+mountainNames[i] + "\n" + "Höjd:  " + mountainHeights[i] + "\n" + "Location:  " + mountainLocations[i] /*+ "\n" + "Land:  " + situated[i]*/, Toast.LENGTH_SHORT).show();
             }
         });
         //my_listview.setAdapter(ListAdapter adapter);
