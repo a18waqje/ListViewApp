@@ -28,7 +28,7 @@ public class Mountain {
 
     public String info() {
         String tmp = new String();
-        tmp += name + "" + location + "and reaches" + height + "m above sea level";
+        tmp += name + "" + " is situated at " + location + " and reaches "+ "" + height + " m above sea level.";
         return tmp;
 
 
@@ -42,9 +42,9 @@ public class Mountain {
         return name;
     }
 
-    public String toSring(){
+    @Override
+    public String toString(){
         return name;
     }
-
 }
 

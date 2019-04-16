@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
         listData = new ArrayList<>(Arrays.asList(mountainNames));
         waqarsBerg.add(new Mountain("Matterhorn","Alps",4478));
+        waqarsBerg.add(new Mountain("Mont Blanc", "Alps", 4808));
+        waqarsBerg.add(new Mountain("Denali", "Alaska", 6190));
         Log.d("WAQAR",waqarsBerg.get(0).getName());
         /*
         Toolbar toolbar =(Toolbar) findViewById(R.id.toolbar);
@@ -92,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
         // Here you should enter your code that fills the ListView
         // 1. Create an array
         // 2. Create a List object with your array from step 1 as in-data
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.list_item_textview,listData);
-
+        //ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.list_item_textview,listData);
+        ArrayAdapter<Mountain> adapter=new ArrayAdapter<Mountain>(this,R.layout.list_item_textview,R.id.list_item_textview,waqarsBerg);
         // 3. Create an ArrayAdapter object that connects
         ListView my_listview=(ListView) findViewById(R.id.my_listview);
         //    * list_item_textview
@@ -103,11 +105,17 @@ public class MainActivity extends AppCompatActivity {
         my_listview.setAdapter(adapter);
         my_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+           /* public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //listData.add(new String("Tomten!"));
-                Toast.makeText(getApplicationContext(),"Name:  "+mountainNames[i] + "\n" + "Höjd:  " + mountainHeights[i] + "\n" + "Location:  " + mountainLocations[i] /*+ "\n" + "Land:  " + situated[i]*/, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Name:  "+mountainNames[i] + "\n" + "Höjd:  " + mountainHeights[i] + "\n" + "Location:  " + mountainLocations[i] /*+ "\n" + "Land:  " + situated[i], Toast.LENGTH_SHORT).show();
+            }*/
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                //listData.add(new String("Tomten!"));
+                Toast.makeText(getApplicationContext(),waqarsBerg.get(position).info(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
         //my_listview.setAdapter(ListAdapter adapter);
         // 5. Connect the ArrayAdapter from step 3 with ListView object created in step 4
         // 6. Style the ListView items according to Material Design

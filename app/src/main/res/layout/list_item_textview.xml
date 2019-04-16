@@ -6,6 +6,6 @@
     android:textSize="16sp"
     android:paddingLeft="40dp"
     android:paddingBottom="20dp"
-    android:paddingTop="20dp"
+    android:paddingTop="30dp"
     android:id="@+id/list_item_textview">
 </TextView>
