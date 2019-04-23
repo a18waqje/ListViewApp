@@ -35,9 +35,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         listData = new ArrayList<>(Arrays.asList(mountainNames));
+        /*
         waqarsBerg.add(new Mountain("Matterhorn","Alps",4478));
         waqarsBerg.add(new Mountain("Mont Blanc", "Alps", 4808));
         waqarsBerg.add(new Mountain("Denali", "Alaska", 6190));
+        */
+
+        for (int i=0; i<mountainNames.length; i++){
+            waqarsBerg.add(new Mountain(mountainNames[i],mountainLocations[i],mountainHeights[i]));
+        }
+
         Log.d("WAQAR",waqarsBerg.get(0).getName());
         /*
         Toolbar toolbar =(Toolbar) findViewById(R.id.toolbar);
